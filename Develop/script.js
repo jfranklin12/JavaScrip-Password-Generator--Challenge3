@@ -1,14 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var numbers = ["0","1","2","3","4","5","6","7","8","9"];
-var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-// var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","?","~"];
+
 
 var userChoice;
 
-var lowercase = ["abcdefghijklmnopqrstuvwxyz"];
-console.log(lowercase)
 
 
  
@@ -33,16 +28,41 @@ function generatePassword() {
   var uppercaseLettersConfirm = window.confirm("Do you want uppercase letters?")
   var numbersConfirm = window.confirm("Do you want numbers?")
   var specialCharactersConfirm = window.confirm("Do you want special characters?")
+  
+  var numbers = "0123456789";
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  var specialCharacters = "!@#$%^&*()?~"; 
 
-
-  if (lowercaseLettersConfirm) {
-
-  }
-
-  for (var c = 0; c <= password; c++) {
+  for (var c = 0; c <= createPassword; c++) {
     console.log(c);
   
   } 
+  const num = numbers.split("")
+  console.log(num)
+  if (lowercaseLettersConfirm) {
+    finalPassword = createPassword.length + lowercase
+
+  }
+
+  if (uppercaseLettersConfirm) {
+    finalPassword = createPassword.length + uppercase
+
+  }
+
+  if (numbersConfirm) {
+    finalPassword = createPassword.length + num
+
+  }
+
+  if (specialCharactersConfirm) {
+    finalPassword = createPassword.length + specialCharacters
+
+  }
+
+
+
+  for(var i = 0; i < createPassword.length; i++)
 
 
 
@@ -56,7 +76,7 @@ function generatePassword() {
 // 
 
 // 4. display generated password
-  // return "";
+  return finalPassword;
   }
 
 // Write password to the #password input
@@ -70,34 +90,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-//   } if (confirm("Do you want lowercase letters?") == true){
-//     // window.prompt("Do you want uppercase letters?")
-//     // var randomLowercase = lowercase[Math.floor(Math.random()*lowercase.length)]
-//     for(var l = 0; l <= lowercase; l++){
-//       var password = password + lowercase.charAt(Math.flood(math.random()*Math.floor(lowercase.length --)));
-//       console.log(password);
-//      }
-//     }
-  
-
-  //   } else {
-  //   window.prompt("Do you want uppercase letters?")
-  //   passwordL = password;
-  // }
-
-  // if (confirm == true){
-  //   window.prompt("Do you want numbers?")
-  // }  else {
-  //   window.prompt("Do you want numbers?")
-  // }
-
-  // if (confirm) {
-  //   window.prompt("Do you want special characters?")
-  // } else {
-  //   window.prompt("Do you want special characters?")
-  // }
 
 
 // for loop- needs to run 9, set loop for 8
