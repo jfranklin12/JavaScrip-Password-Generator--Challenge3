@@ -2,8 +2,13 @@
 var generateBtn = document.querySelector("#generate");
 var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","?","~"]
+// var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","?","~"];
+
+var userChoice;
+
+var lowercase = ["abcdefghijklmnopqrstuvwxyz"];
+console.log(lowercase)
 
 
  
@@ -11,43 +16,35 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","?","~"]
 // 1. Prompt the user for the password criteria
 function generatePassword() {
   console.log("Hey you clicked the button!");
-  password = window.prompt("How many characters will you password to contain?")
-//  a.password between 8 and 128
-  if(password < 8 || password > 128) {
+  var finalPassword;
+
+  var createPassword = window.prompt("How many characters will you password to contain?")
+
+  console.log(createPassword)
+  
+  //  a.password between 8 and 128
+  if(createPassword < 8 || createPassword > 128) {
     window.alert("Your password must be between 8 and 128 characters.")
-    window.prompt("How many characters will you password to contain?");
+    return generatePassword();
   } 
-//  b. Lowercase, Uppercase, Numbers, and Special Characters
-  else {
-    window.prompt("Do you want lowercase letters?")
-    for (var c = 0; c <= password; c++) {
-      console.log(c);
-    
-    }   
+// //  b. Lowercase, Uppercase, Numbers, and Special Characters
+  
+  var lowercaseLettersConfirm = window.confirm("Do you want lowercase letters?")
+  var uppercaseLettersConfirm = window.confirm("Do you want uppercase letters?")
+  var numbersConfirm = window.confirm("Do you want numbers?")
+  var specialCharactersConfirm = window.confirm("Do you want special characters?")
+
+
+  if (lowercaseLettersConfirm) {
+
   }
 
-  if (confirm){
-    window.prompt("Do you want uppercase letters?")
-    // var randomLowercase = lowercase[Math.floor(Math.random()*lowercase.length)]
-      console.log(lowercase);
+  for (var c = 0; c <= password; c++) {
+    console.log(c);
+  
+  } 
 
-    }
 
-  // }  else {
-  //   window.prompt("Do you want uppercase letters?")
-  // }
-
-  // if (confirm){
-  //   window.prompt("Do you want numbers?")
-  // }  else {
-  //   window.prompt("Do you want numbers?")
-  // }
-
-  // if (confirm) {
-  //   window.prompt("Do you want special characters?")
-  // } else {
-  //   window.prompt("Do you want special characters?")
-  // }
 
 
 // 2. Validate the input
@@ -59,8 +56,8 @@ function generatePassword() {
 // 
 
 // 4. display generated password
-  return "";
-}
+  // return "";
+  }
 
 // Write password to the #password input
 function writePassword() {
@@ -73,6 +70,34 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+//   } if (confirm("Do you want lowercase letters?") == true){
+//     // window.prompt("Do you want uppercase letters?")
+//     // var randomLowercase = lowercase[Math.floor(Math.random()*lowercase.length)]
+//     for(var l = 0; l <= lowercase; l++){
+//       var password = password + lowercase.charAt(Math.flood(math.random()*Math.floor(lowercase.length --)));
+//       console.log(password);
+//      }
+//     }
+  
+
+  //   } else {
+  //   window.prompt("Do you want uppercase letters?")
+  //   passwordL = password;
+  // }
+
+  // if (confirm == true){
+  //   window.prompt("Do you want numbers?")
+  // }  else {
+  //   window.prompt("Do you want numbers?")
+  // }
+
+  // if (confirm) {
+  //   window.prompt("Do you want special characters?")
+  // } else {
+  //   window.prompt("Do you want special characters?")
+  // }
 
 
 // for loop- needs to run 9, set loop for 8
