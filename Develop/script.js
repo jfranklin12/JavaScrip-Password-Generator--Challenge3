@@ -1,13 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-var userChoice;
-
-
+  
+var numbers = "0123456789";
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var specialCharacters = "!@#$%^&*()?~"; 
 
  
-
+// Allow string variables to be split and randomized
+function shuffle (word) {
+  var shuffleWord ='';
+  word =word.split('');
+  while (word.length > 0){
+    shuffleWord += word.splice(word.length * Math.random() << 0)
+  }
+}
 // 1. Prompt the user for the password criteria
 function generatePassword() {
   console.log("Hey you clicked the button!");
@@ -21,59 +29,51 @@ function generatePassword() {
   if(createPassword < 8 || createPassword > 128) {
     window.alert("Your password must be between 8 and 128 characters.")
     return generatePassword();
+  }
+  for (var c = 0; c <= createPassword; c++) {
+    console.log(c);
+  
   } 
+
 // //  b. Lowercase, Uppercase, Numbers, and Special Characters
   
   var lowercaseLettersConfirm = window.confirm("Do you want lowercase letters?")
   var uppercaseLettersConfirm = window.confirm("Do you want uppercase letters?")
   var numbersConfirm = window.confirm("Do you want numbers?")
   var specialCharactersConfirm = window.confirm("Do you want special characters?")
-  
-  var numbers = "0123456789";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var specialCharacters = "!@#$%^&*()?~"; 
 
-  for (var c = 0; c <= createPassword; c++) {
-    console.log(c);
-  
-  } 
-  const num = numbers.split("")
-  console.log(num)
+  // 2. Validate the input
   if (lowercaseLettersConfirm) {
-    finalPassword = createPassword.length + lowercase
-
+    finalPassword = finalPassword + lowercase
   }
 
   if (uppercaseLettersConfirm) {
-    finalPassword = createPassword.length + uppercase
-
+    finalPassword = finalPassword + uppercase
   }
 
   if (numbersConfirm) {
-    finalPassword = createPassword.length + num
-
+    finalPassword = finalPassword + numbers
   }
 
   if (specialCharactersConfirm) {
-    finalPassword = createPassword.length + specialCharacters
-
+    finalPassword = finalPassword + specialCharacters
   }
 
 
+  // 3.generate password based on criteria
+    let generateRandom = generatePassword(createPassword, lowercaseLettersConfirm, uppercaseLettersConfirm, numbersConfirm, specialCharactersConfirm)
 
-  for(var i = 0; i < createPassword.length; i++)
+    let shuffleWord = shuffleWord(generateRandom)
+
+    const str = shuffleWord
+
+    const firstn = str.slice(0, createPassword);
+
+    writePassword(firstn)
+    
 
 
-
-
-// 2. Validate the input
-
-
-
-
-// 3.generate password based on criteria
-// 
+ 
 
 // 4. display generated password
   return finalPassword;
