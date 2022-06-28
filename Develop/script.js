@@ -1,20 +1,15 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-  
-var numbers = "0123456789";
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var specialCharacters = "!@#$%^&*()?~"; 
-
  
 // Allow string variables to be split and randomized
-function shuffle (word) {
-  var shuffleWord ='';
+function shuffleWord (word) {
+  var shuffle ='';
   word =word.split('');
   while (word.length > 0){
     shuffleWord += word.splice(word.length * Math.random() << 0)
   }
+  return shuffle;
 }
 // 1. Prompt the user for the password criteria
 function generatePassword() {
@@ -42,41 +37,46 @@ function generatePassword() {
   var numbersConfirm = window.confirm("Do you want numbers?")
   var specialCharactersConfirm = window.confirm("Do you want special characters?")
 
+  var userChoice = ""
+
   // 2. Validate the input
   if (lowercaseLettersConfirm) {
-    finalPassword = finalPassword + lowercase
+    userChoice += "abcdefghijklmnopqrstuvwxyz";
   }
 
   if (uppercaseLettersConfirm) {
-    finalPassword = finalPassword + uppercase
+    userChoice += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
 
   if (numbersConfirm) {
-    finalPassword = finalPassword + numbers
+    userChoice += "0123456789"
   }
 
   if (specialCharactersConfirm) {
-    finalPassword = finalPassword + specialCharacters
+    userChoice =+ "!@#$%^&*()?~"
   }
 
+  return userChoice
+}
 
+function newPassword(){
   // 3.generate password based on criteria
-    let generateRandom = generatePassword(createPassword, lowercaseLettersConfirm, uppercaseLettersConfirm, numbersConfirm, specialCharactersConfirm)
+  var generateRandom = generatePassword(lowercaseLettersConfirm, uppercaseLettersConfirm, numbersConfirm, specialCharactersConfirm)
 
-    let shuffleWord = shuffleWord(generateRandom)
+  var shuffleWord = shuffleWord(generateRandom)
 
-    const str = shuffleWord
+  var str = shuffleWord
 
-    const firstn = str.slice(0, createPassword);
+  var firstn = str.slice(0, createPassword);
 
-    writePassword(firstn)
+  writePassword(firstn)
     
 
 
  
 
 // 4. display generated password
-  return finalPassword;
+  return newPassword;
   }
 
 // Write password to the #password input
