@@ -45,15 +45,15 @@ function generatePassword() {
   }
 
   if (uppercaseLettersConfirm) {
-    userChoice += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    userChoice += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   }
 
   if (numbersConfirm) {
-    userChoice += "0123456789"
+    userChoice += "0123456789";
   }
 
   if (specialCharactersConfirm) {
-    userChoice =+ "!@#$%^&*()?~"
+    userChoice =+ "!@#$%^&*()?~";
   }
 
   return userChoice
