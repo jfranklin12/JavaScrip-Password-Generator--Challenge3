@@ -9,4 +9,4 @@ JavaScript Password Generator created for Julian Franklin by Julian Franklin.
 [Julian Franklin JavaScript Password Generator](https://jfranklin12.github.io/Julian-Franklin-JavaScript-Password-Generator/k)
 
 ## Deployed Application Screenshot
-![The deployed application screenshot](./Assets/deployed%20application.jpg)
+![The deployed application screenshot](./pictures/deployed%20application.jpg)
